@@ -1,0 +1,13 @@
+app-root {
+  height: 100vh;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure body and html also have full height */
+:host {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
