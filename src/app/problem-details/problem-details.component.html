@@ -1,14 +1,6 @@
 <div class="h-screen bg-cream-bg flex flex-col">
   <!-- Header -->
-  <header class="bg-white shadow-md px-16 py-4 flex items-center h-[90px]">
-    <div class="flex items-center relative">
-      <!-- Logo -->
-      <div class="relative w-[69px] h-[90px]">
-        <span class="absolute left-0 top-0 text-[88px] leading-none font-normal text-brown-primary font-italiana h-[90px]">C</span>
-        <span class="absolute left-8 top-6 text-[37px] leading-none font-normal text-brown-primary font-italiana">Σ</span>
-      </div>
-    </div>
-  </header>
+  <app-header></app-header>
 
   <!-- Content -->
   <main class="flex-1 p-16">
@@ -20,95 +12,25 @@
           <h1 class="text-[36px] font-semibold text-black tracking-[2.88px] font-roboto">{{ problemName }}</h1>
           <span class="text-[16px] font-semibold text-[#B7B7B7] tracking-[1.28px] font-roboto">FZN</span>
         </div>
-        
+
         <!-- Breadcrumbs -->
-        <nav class="flex items-center px-6 py-4 text-sm">
-          <button 
-            (click)="goBack()" 
-            class="text-blue-action hover:underline font-roboto text-[14px] leading-5 tracking-[0.25px]">
-            Problem List
-          </button>
-          <span class="text-grey-grey mx-3 font-roboto text-[14px] leading-5 tracking-[0.25px]">/</span>
-          <span class="text-grey-grey font-roboto text-[14px] leading-5 tracking-[0.25px]">#{{ problemId || 'ID' }}</span>
-        </nav>
+        <app-breadcrumbs
+          [problemId]="problemId"
+          (goBack)="goBack()">
+        </app-breadcrumbs>
       </div>
 
       <!-- Actions Bar -->
-      <div class="flex justify-end gap-6 mb-6">
-        <button 
-          (click)="onResolve()"
-          class="bg-brown-primary text-white px-4 h-9 rounded text-[14px] font-medium tracking-[1.25px] uppercase hover:bg-opacity-90 transition-colors flex items-center">
-          RESOLVE
-        </button>
-        <button 
-          (click)="onDelete()"
-          class="w-[35px] h-9 border-2 border-red-delete rounded flex items-center justify-center hover:bg-red-delete hover:bg-opacity-10 transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3V4H20V6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4V4H9V3H15ZM7 19H17V6H7V19ZM9 8H11V17H9V8ZM15 8H13V17H15V8Z" fill="#F54F4F"/>
-          </svg>
-        </button>
-      </div>
+      <app-actions
+        (resolve)="onResolve()"
+        (delete)="onDelete()">
+      </app-actions>
 
       <!-- Solvers Table -->
-      <div class="bg-white rounded shadow-md overflow-hidden">
-        <table class="w-full">
-          <!-- Table Header -->
-          <thead class="bg-brown-light">
-            <tr>
-              <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">Solver</th>
-              <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">Status</th>
-              <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">#solutions</th>
-              <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">Actions</th>
-            </tr>
-          </thead>
-          <!-- Table Body -->
-          <tbody class="divide-y divide-gray-200">
-            <tr *ngFor="let solver of solvers" class="hover:bg-gray-50">
-              <td class="py-3 px-4 text-sm text-black opacity-87 font-roboto leading-5 tracking-[0.25px]">
-                {{ solver.name }}
-              </td>
-              <td class="py-3 px-4 text-sm text-black opacity-87 font-roboto leading-5 tracking-[0.25px]">
-                {{ solver.status }}
-              </td>
-              <td class="py-3 px-4 text-sm text-black opacity-87 font-roboto leading-5 tracking-[0.25px]">
-                {{ solver.solutions }}
-              </td>
-              <td class="py-3 px-4">
-                <div class="flex space-x-5 text-sm">
-                  <button 
-                    *ngFor="let action of solver.actions"
-                    (click)="onActionClick(solver, action)"
-                    class="text-blue-action hover:underline font-roboto text-[14px] leading-5 tracking-[0.25px]">
-                    {{ action }}
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Pagination Footer -->
-        <div class="bg-white px-2 py-4 flex items-center justify-end space-x-8 border-t border-gray-200 h-[58px]">
-          <span class="text-xs text-black opacity-87 font-roboto leading-5 tracking-[0.4px]">Rows per page:</span>
-          <div class="relative w-[33px]">
-            <select class="text-xs text-black opacity-87 bg-transparent border-b border-gray-400 pr-6 pb-1 appearance-none font-roboto leading-5 tracking-[0.4px] h-[26px] pt-2">
-              <option>5</option>
-              <option>10</option>
-              <option>25</option>
-            </select>
-            <span class="material-icons absolute right-0 top-0 text-gray-500 text-lg pointer-events-none opacity-54">arrow_drop_down</span>
-          </div>
-          <span class="text-xs text-black opacity-87 font-roboto leading-5 tracking-[0.4px]">1-5 of 10</span>
-          <div class="flex space-x-1">
-            <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
-              <span class="material-icons text-black opacity-20 text-lg">chevron_left</span>
-            </button>
-            <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
-              <span class="material-icons text-black opacity-54 text-lg">navigate_next</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <app-table
+        [solvers]="solvers"
+        (actionClick)="onActionClick($event)">
+      </app-table>
     </div>
   </main>
 </div>
