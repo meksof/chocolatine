@@ -1,0 +1,9 @@
+<nav class="flex items-center px-6 py-4 text-sm">
+  <button 
+    (click)="onGoBack()" 
+    class="text-blue-action hover:underline font-roboto text-[14px] leading-5 tracking-[0.25px]">
+    Problem List
+  </button>
+  <span class="text-grey-grey mx-3 font-roboto text-[14px] leading-5 tracking-[0.25px]">/</span>
+  <span class="text-grey-grey font-roboto text-[14px] leading-5 tracking-[0.25px]">#{{ problemId || 'ID' }}</span>
+</nav>
