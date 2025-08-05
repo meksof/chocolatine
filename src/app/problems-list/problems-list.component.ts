@@ -6,7 +6,7 @@ import { HeaderComponent } from '../shared/header/header.component';
 @Component({
   selector: 'app-problems-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './problems-list.component.html',
   styleUrls: ['./problems-list.component.scss']
 })
