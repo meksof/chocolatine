@@ -18,7 +18,7 @@ export class ProblemDetailsComponent implements OnInit {
   problemName: string = 'aust.fzn';
 
   // Mock data for solvers
-  solvers = [
+  solvers: SolverData[] = [
     { name: 'Choco Solver', status: 'In progress', solutions: 0, actions: ['Consult', 'Refresh', 'Close'] },
     { name: 'Choco 2 solver', status: 'Closed', solutions: 11, actions: ['Consult'] },
     { name: 'Choco 3 solver', status: 'Closed', solutions: 22, actions: ['Consult'] },
