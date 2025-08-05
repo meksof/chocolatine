@@ -1,0 +1,59 @@
+<div class="bg-white rounded shadow-md overflow-hidden">
+  <table class="w-full">
+    <!-- Table Header -->
+    <thead class="bg-brown-light">
+      <tr>
+        <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">Solver</th>
+        <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">Status</th>
+        <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">#solutions</th>
+        <th class="text-left py-3 px-4 text-brown-primary text-xs font-bold tracking-wider">Actions</th>
+      </tr>
+    </thead>
+    <!-- Table Body -->
+    <tbody class="divide-y divide-gray-200">
+      <tr *ngFor="let solver of solvers" class="hover:bg-gray-50">
+        <td class="py-3 px-4 text-sm text-black opacity-87 font-roboto leading-5 tracking-[0.25px]">
+          {{ solver.name }}
+        </td>
+        <td class="py-3 px-4 text-sm text-black opacity-87 font-roboto leading-5 tracking-[0.25px]">
+          {{ solver.status }}
+        </td>
+        <td class="py-3 px-4 text-sm text-black opacity-87 font-roboto leading-5 tracking-[0.25px]">
+          {{ solver.solutions }}
+        </td>
+        <td class="py-3 px-4">
+          <div class="flex space-x-5 text-sm">
+            <button 
+              *ngFor="let action of solver.actions"
+              (click)="onActionClick(solver, action)"
+              class="text-blue-action hover:underline font-roboto text-[14px] leading-5 tracking-[0.25px]">
+              {{ action }}
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination Footer -->
+  <div class="bg-white px-2 py-4 flex items-center justify-end space-x-8 border-t border-gray-200 h-[58px]">
+    <span class="text-xs text-black opacity-87 font-roboto leading-5 tracking-[0.4px]">Rows per page:</span>
+    <div class="relative w-[33px]">
+      <select class="text-xs text-black opacity-87 bg-transparent border-b border-gray-400 pr-6 pb-1 appearance-none font-roboto leading-5 tracking-[0.4px] h-[26px] pt-2">
+        <option>5</option>
+        <option>10</option>
+        <option>25</option>
+      </select>
+      <span class="material-icons absolute right-0 top-0 text-gray-500 text-lg pointer-events-none opacity-54">arrow_drop_down</span>
+    </div>
+    <span class="text-xs text-black opacity-87 font-roboto leading-5 tracking-[0.4px]">1-5 of 10</span>
+    <div class="flex space-x-1">
+      <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
+        <span class="material-icons text-black opacity-20 text-lg">chevron_left</span>
+      </button>
+      <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
+        <span class="material-icons text-black opacity-54 text-lg">navigate_next</span>
+      </button>
+    </div>
+  </div>
+</div>
