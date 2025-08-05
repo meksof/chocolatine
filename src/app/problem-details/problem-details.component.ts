@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../shared/header/header.component';
+import { BreadcrumbsComponent } from '../shared/breadcrumbs/breadcrumbs.component';
+import { ActionsComponent } from '../shared/actions/actions.component';
+import { TableComponent, SolverData } from '../shared/table/table.component';
 
 @Component({
   selector: 'app-problem-details',
