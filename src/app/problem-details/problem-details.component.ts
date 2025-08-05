@@ -9,7 +9,7 @@ import { TableComponent, SolverData } from '../shared/table/table.component';
 @Component({
   selector: 'app-problem-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent, BreadcrumbsComponent, ActionsComponent, TableComponent],
   templateUrl: './problem-details.component.html',
   styleUrls: ['./problem-details.component.scss']
 })
