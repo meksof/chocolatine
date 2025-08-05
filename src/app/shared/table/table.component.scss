@@ -3,7 +3,7 @@
   th {
     box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.12) inset;
   }
-  
+
   td {
     box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.12) inset;
   }
@@ -11,7 +11,7 @@
 
 // Ensure proper Material Icons display
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -22,6 +22,6 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }

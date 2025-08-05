@@ -1,12 +1,12 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Output, EventEmitter } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-actions',
+  selector: "app-actions",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './actions.component.html',
-  styleUrls: ['./actions.component.scss']
+  templateUrl: "./actions.component.html",
+  styleUrls: ["./actions.component.scss"],
 })
 export class ActionsComponent {
   @Output() resolve = new EventEmitter<void>();

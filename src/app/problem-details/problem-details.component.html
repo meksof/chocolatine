@@ -9,27 +9,27 @@
       <div class="mb-6">
         <!-- Title Section -->
         <div class="flex items-center gap-6 mb-4">
-          <h1 class="text-[36px] font-semibold text-black tracking-[2.88px] font-roboto">{{ problemName }}</h1>
-          <span class="text-[16px] font-semibold text-[#B7B7B7] tracking-[1.28px] font-roboto">FZN</span>
+          <h1
+            class="text-[36px] font-semibold text-black tracking-[2.88px] font-roboto"
+          >
+            {{ problemName }}
+          </h1>
+          <span
+            class="text-[16px] font-semibold text-[#B7B7B7] tracking-[1.28px] font-roboto"
+            >FZN</span
+          >
         </div>
 
         <!-- Breadcrumbs -->
-        <app-breadcrumbs
-          [problemId]="problemId"
-          (goBack)="goBack()">
+        <app-breadcrumbs [problemId]="problemId" (goBack)="goBack()">
         </app-breadcrumbs>
       </div>
 
       <!-- Actions Bar -->
-      <app-actions
-        (resolve)="onResolve()"
-        (delete)="onDelete()">
-      </app-actions>
+      <app-actions (resolve)="onResolve()" (delete)="onDelete()"> </app-actions>
 
       <!-- Solvers Table -->
-      <app-table
-        [solvers]="solvers"
-        (actionClick)="onActionClick($event)">
+      <app-table [solvers]="solvers" (actionClick)="onActionClick($event)">
       </app-table>
     </div>
   </main>

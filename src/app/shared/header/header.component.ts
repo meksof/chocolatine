@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
-
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   onLogoClick(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
   }
 }
