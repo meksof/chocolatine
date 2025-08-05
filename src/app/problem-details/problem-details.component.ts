@@ -76,7 +76,7 @@ export class ProblemDetailsComponent implements OnInit {
     console.log('Delete problem:', this.problemName);
   }
 
-  onActionClick(solver: any, action: string): void {
-    console.log(`Action ${action} for solver ${solver.name}`);
+  onActionClick(event: { solver: SolverData, action: string }): void {
+    console.log(`Action ${event.action} for solver ${event.solver.name}`);
   }
 }
